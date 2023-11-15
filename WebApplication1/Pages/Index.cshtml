@@ -1,0 +1,132 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@section Scripts {
+    <script>
+        var rangeInput1 = document.getElementById('Factor1Value');
+        var rangeInput2 = document.getElementById('Factor2Value');
+        var rangeInput3 = document.getElementById('Factor3Value');
+        var rangeInput4 = document.getElementById('Factor4Value');
+        var rangeInput5 = document.getElementById('Factor5Value');
+
+        var rangeInput1Dis = document.getElementById('Factor1ValueDis');
+        var rangeInput2Dis = document.getElementById('Factor2ValueDis');
+        var rangeInput3Dis = document.getElementById('Factor3ValueDis');
+        var rangeInput4Dis = document.getElementById('Factor4ValueDis');
+        var rangeInput5Dis = document.getElementById('Factor5ValueDis');
+
+        window.onload = function () {
+            loadSliderValues();
+            rangeInput1Dis.textContent = rangeInput1.value;
+            rangeInput2Dis.textContent = rangeInput2.value;
+            rangeInput3Dis.textContent = rangeInput3.value;
+            rangeInput4Dis.textContent = rangeInput4.value;
+            rangeInput5Dis.textContent = rangeInput5.value;
+        };
+
+        function loadSliderValues() {
+            rangeInput1.addEventListener('input', function () {
+                rangeInput1Dis.textContent = rangeInput1.value;
+            });
+
+            rangeInput2.addEventListener('input', function () {
+                rangeInput2Dis.textContent = rangeInput2.value;
+            });
+
+            rangeInput3.addEventListener('input', function () {
+                rangeInput3Dis.textContent = rangeInput3.value;
+            });
+
+            rangeInput4.addEventListener('input', function () {
+                rangeInput4Dis.textContent = rangeInput4.value;
+            });
+
+            rangeInput5.addEventListener('input', function () {
+                rangeInput5Dis.textContent = rangeInput5.value;
+            });
+        }
+    </script>
+}
+<div class="text-center">
+    <h4 class="display-4">Static Data Analysis Uploader</h4>
+    <form method="post" enctype="multipart/form-data">
+        <div class="container overflow-hidden">     
+            <div class="row gy-5">
+                <div class="col">
+                    <input class="form-control" type="file" id="formFile" asp-for="File">
+                    <label asp-for="File" class="form-label text-left">Upload CSV file</label>
+                    <span asp-validation-for="File" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <div class="row gy-10">
+                    <div class="col-2 form-check">
+                    <label asp-for="Factors.IfFactor1" class="form-check-label">Factor 1</label>
+                    <input class="form-check-input" type="checkbox" value="true" id="IfFactor1" asp-for="Factors.IfFactor1">
+                    </div>
+                    <div class="col-10">
+                    <h3><span class="badge bg-secondary" id="Factor1ValueDis">0</span></h3>
+                    <input type="range" class="form-range" min="0" max="100" id="Factor1Value" value="50">
+                    <label asp-for="Factors.Factor1Value" class="form-label">Factor 1 Value</label>
+                    </div>
+            </div>
+            <div class="row gy-10">
+                <div class="col-2 form-check">
+                    <label asp-for="Factors.IfFactor2" class="form-check-label">Factor 2</label>
+                    <input class="form-check-input" type="checkbox" value="true" id="IfFactor2" asp-for="Factors.IfFactor2">
+                </div>
+                <div class="col-10">
+                    <h3><span class="badge bg-secondary" id="Factor2ValueDis">0</span></h3>
+                    <input type="range" class="form-range" min="0" max="100" id="Factor2Value" asp-for="Factors.Factor2Value" value="50">
+                    <label asp-for="Factors.Factor2Value" class="form-label">Factor 2 Value</label>
+                </div>
+            </div>
+            <div class="row gy-10">
+                <div class="col-2 form-check">
+                    <label asp-for="Factors.IfFactor3" class="form-check-label">Factor 3</label>
+                    <input class="form-check-input" type="checkbox" value="true" id="IfFactor3" asp-for="Factors.IfFactor3">
+                </div>
+                <div class="col-10">
+                    <h3><span class="badge bg-secondary" id="Factor3ValueDis">0</span></h3>
+                    <input type="range" class="form-range" min="0" max="100" id="Factor3Value" asp-for="Factors.Factor3Value" value="50">
+                    <label asp-for="Factors.Factor3Value" class="form-label">Factor 3 Value</label>
+                </div>
+            </div>
+            <div class="row gy-10">
+                <div class="col-2 form-check">
+                    <label asp-for="Factors.IfFactor4" class="form-check-label">Factor 4</label>
+                    <input class="form-check-input" type="checkbox" value="true" id="IfFactor4" asp-for="Factors.IfFactor4">
+                </div>
+                <div class="col-10">
+                    <h3><span class="badge bg-secondary" id="Factor4ValueDis">0</span></h3>
+                    <input type="range" class="form-range" min="0" max="100" id="Factor4Value" asp-for="Factors.Factor4Value" value="50">
+                    <label asp-for="Factors.Factor4Value" class="form-label">Factor 4 Value</label>
+                </div>
+            </div>
+            <div class="row gy-10">
+                <div class="col-2 form-check">
+                    <label asp-for="Factors.IfFactor5" class="form-check-label">Factor 5</label>
+                    <input class="form-check-input" type="checkbox" value="true" id="IfFactor4" asp-for="Factors.IfFactor5">
+                </div>
+                <div class="col-10">
+                    <h3><span class="badge bg-secondary" id="Factor5ValueDis">0</span></h3>
+                    <input type="range" class="form-range" min="0" max="100" id="Factor5Value" asp-for="Factors.Factor4Value" value="50">
+                    <label asp-for="Factors.Factor5Value" class="form-label">Factor 5 Value</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div asp-validation-summary="All" class="invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+     </form>
+</div>
+         
