@@ -15,4 +15,6 @@
   },
   "AllowedHosts": "*"
 }
-Add your Azre Blob Storage Connection string and Container Name in the appsettings.json file
+
+
+## Add your Azre Blob Storage Connection string and Container Name in the appsettings.json file
